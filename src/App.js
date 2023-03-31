@@ -1,0 +1,142 @@
+import React from "react";
+import NavBar from "./Components/NavBar";
+import News from "./Components/News";
+
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+const App = (props) => {
+  console.log(process.env.REACT_APP_NEWS_APIKEY);
+  let apiKey = process.env.REACT_APP_NEWS_APIKEY;
+  let pageSize = 10;
+  return (
+    <div>
+      <Router>
+        <NavBar />
+        <Routes>
+          <Route
+            exact
+            path="/"
+            element={
+              <News
+                setProgress={props.setProgress}
+                apiKey={apiKey}
+                key="general"
+                color="dark"
+                pageSize={pageSize}
+                country="in"
+                category="general"
+              />
+            }
+          />
+          <Route
+            exact
+            path="/business"
+            element={
+              <News
+                setProgress={props.setProgress}
+                apiKey={apiKey}
+                key="business"
+                color="primary"
+                pageSize={pageSize}
+                country="in"
+                category="business"
+              />
+            }
+          />
+          <Route
+            exact
+            path="/entertainment"
+            element={
+              <News
+                setProgress={props.setProgress}
+                apiKey={apiKey}
+                key="entertainment"
+                color="success"
+                pageSize={pageSize}
+                country="in"
+                category="entertainment"
+              />
+            }
+          />
+          <Route
+            exact
+            path="/general"
+            element={
+              <News
+                setProgress={props.setProgress}
+                apiKey={apiKey}
+                key="general"
+                color="info"
+                pageSize={pageSize}
+                country="in"
+                category="general"
+              />
+            }
+          />
+          <Route
+            exact
+            path="/health"
+            element={
+              <News
+                setProgress={props.setProgress}
+                apiKey={apiKey}
+                key="health"
+                color="danger"
+                pageSize={pageSize}
+                country="in"
+                category="health"
+              />
+            }
+          />
+          <Route
+            exact
+            path="/science"
+            element={
+              <News
+                setProgress={props.setProgress}
+                apiKey={apiKey}
+                key="science"
+                color="success"
+                pageSize={pageSize}
+                country="in"
+                category="science"
+              />
+            }
+          />
+          <Route
+            exact
+            path="/sports"
+            element={
+              <News
+                setProgress={props.setProgress}
+                apiKey={apiKey}
+                key="sports"
+                color="warning"
+                pageSize={pageSize}
+                country="in"
+                category="sports"
+              />
+            }
+          />
+          <Route
+            exact
+            path="/technology"
+            element={
+              <News
+                setProgress={props.setProgress}
+                apiKey={apiKey}
+                key="technology"
+                color="dark"
+                pageSize={pageSize}
+                country="in"
+                category="technology"
+              />
+            }
+          />
+        </Routes>
+      </Router>
+    </div>
+  );
+};
+
+export default App
